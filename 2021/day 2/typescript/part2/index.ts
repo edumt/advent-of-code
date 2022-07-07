@@ -8,18 +8,19 @@ const cleanInputData = (inputData: string) =>
 
 const solution = () => {
   const cleanedData = cleanInputData(readInput());
-  const initialPosition = { horizontal: 0, depth: 0 };
+  const initialPosition = { horizontal: 0, depth: 0, aim: 0 };
   const position = cleanedData.reduce((position, command, idx) => {
     const units = Number(command[1]);
     switch (command[0]) {
       case "forward":
         position.horizontal += units;
+        position.depth += position.aim * units;
         break;
       case "down":
-        position.depth += units;
+        position.aim += units;
         break;
       case "up":
-        position.depth -= units;
+        position.aim -= units;
         break;
     }
 
