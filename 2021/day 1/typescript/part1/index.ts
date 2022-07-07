@@ -1,4 +1,4 @@
-import fs from 'fs'
+import fs from 'fs';
 
 const readInput = (path?: string) => fs.readFileSync(path ? path : '../input.txt', 'utf8')
 const cleanInputData = (inputData: string) =>inputData.split('\r\n').map(Number)
